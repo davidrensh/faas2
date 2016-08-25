@@ -25,7 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
+import { AppComponent ,DynamicContent} from './app.component';
 import { AngularFireModule } from 'angularfire2';
 export const firebaseConfig = {
   apiKey: "AIzaSyDUKlFAFOci3eIKn84YGr4Z1A4fexfyfNg",
@@ -36,7 +36,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,DynamicContent
   ],
   imports: [
     BrowserModule,
