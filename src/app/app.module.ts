@@ -20,6 +20,7 @@
 // export class AppModule {
 
 // }
+import * as firebase from 'firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
