@@ -54,7 +54,7 @@ export class AppComponent {
   </div>`;
   items: FirebaseListObservable<any[]>;
   constructor(af: AngularFire) {//
-    console.log("aaaa");
+    //console.log("aaaa");
     this.items = af.database.list('items');
     
   }
