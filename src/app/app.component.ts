@@ -1,40 +1,39 @@
-import { Component,Directive, ComponentMetadata, Input, ReflectiveInjector,
-  ViewContainerRef, Compiler,NgModule  } from '@angular/core';
+import { Component} from '@angular/core';//,Directive, ComponentMetadata, Input, ReflectiveInjector, ViewContainerRef, Compiler,NgModule 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-@Directive({
-  selector: '[dynamicContent]',
-})
-export class DynamicContent {
-  @Input('dynamicContent') private template: string;
-  @Input('dynamicContentSelector') private selector: string;
-  @Input('dynamicContentContext') private context: Object;
+// @Directive({
+//   selector: '[dynamicContent]',
+// })
+// export class DynamicTemplate {
+//   @Input('dynamicContent') private template: string;
+//   @Input('dynamicContentSelector') private selector: string;
+//   @Input('dynamicContentContext') private context: Object;
 
-  constructor(private vcRef: ViewContainerRef, private compiler: Compiler) { }
+//   constructor(private viewRef: ViewContainerRef, private compiler: Compiler) { }
 
-  private _createDynamic() {
-    this.context = this.context || {};
+//   private _createDynamic() {
+//     this.context = this.context || {};
 
-    const metadata = new ComponentMetadata({
-      selector: this.selector,
-      template: this.template,
-    });
+//     const metadata = new ComponentMetadata({
+//       selector: this.selector,
+//       template: this.template,
+//     });
 
-    const cmpClass = class _ { };
-    cmpClass.prototype = this.context;
-    return Component(metadata)(cmpClass);
-  }
+//     const cmpClass = class _ { };
+//     cmpClass.prototype = this.context;
+//     return Component(metadata)(cmpClass);
+//   }
 
-  ngOnChanges() {
-    if (!this.template) return;
-    this.compiler.compileComponentAsync(this._createDynamic())
-      .then(factory => {
-        const injector = ReflectiveInjector.fromResolvedProviders([], this.vcRef.parentInjector);
-        this.vcRef.clear();
-        this.vcRef.createComponent(factory, 0, injector);
-      });
-  }
-}
+//   ngOnChanges() {
+//     if (!this.template) return;
+//     this.compiler.compileComponentAsync(this._createDynamic())
+//       .then(factory => {
+//         const injector = ReflectiveInjector.fromResolvedProviders([], this.viewRef.parentInjector);
+//         this.viewRef.clear();
+//         this.viewRef.createComponent(factory, 0, injector);
+//       });
+//   }
+// }
 
 
 @Component({
@@ -59,7 +58,11 @@ export class AppComponent {
     
   }
   setMessage(message: string) {
-    //this.message = message;
-    this.html = `<div>hnnew msg</div><ul><li class="text" *ngFor="let item of items | async">{{item.$value}}</li></ul>`;
+    this.title = 'Changed title';
+    this.html = `<div>{{title}}</div><ul><li class="text" *ngFor="let item of items | async">{{item.$value}}</li></ul>
+    <button (click)="self.saveForm('dynamic component')">Save</button>`;
+  }
+  saveForm(message: string) {
+    //save end user submited form data 
   }
 }
