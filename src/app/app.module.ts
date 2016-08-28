@@ -1,25 +1,3 @@
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule, ApplicationRef } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { FormsModule } from '@angular/forms';
-// import { AppComponent } from './app.component';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     CommonModule,
-//     FormsModule
-//   ],
-//   providers: [],
-//   entryComponents: [AppComponent],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule {
-
-// }
 import * as firebase from 'firebase';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ApplicationRef } from '@angular/core';
@@ -29,6 +7,8 @@ import { AppComponent } from './app.component';
 import { DynamicTemplate } from './dynamictemplate/dynamictemplate.component';
 
 import { AngularFireModule } from 'angularfire2';
+import { TempeditorComponent } from './tempeditor/tempeditor.component';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDUKlFAFOci3eIKn84YGr4Z1A4fexfyfNg",
@@ -39,7 +19,7 @@ export const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent,DynamicTemplate
+    AppComponent,DynamicTemplate, TempeditorComponent
   ],
   imports: [
     BrowserModule,
@@ -47,34 +27,9 @@ export const firebaseConfig = {
     FormsModule, AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [],
-  entryComponents: [AppComponent],
-  bootstrap: [AppComponent]
+  entryComponents: [TempeditorComponent],
+  bootstrap: [TempeditorComponent]
 })
 export class AppModule {
 
 }
-
-// import * as firebase from 'firebase';
-// import { BrowserModule } from '@angular/platform-browser';
-// import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-// import { enableProdMode, NgModule } from '@angular/core';
-// import { AppComponent } from './app.component';
-// import { AngularFireModule } from 'angularfire2';
-
-// export const firebaseConfig = {
-//   apiKey: "AIzaSyDUKlFAFOci3eIKn84YGr4Z1A4fexfyfNg",
-//   authDomain: "formaas.firebaseapp.com",
-//   databaseURL: "https://formaas.firebaseio.com",
-//   storageBucket: "gs://firebase-formaas.appspot.com"
-// };
-
-// @NgModule({
-//   imports: [
-//     BrowserModule
-//     , AngularFireModule.initializeApp(firebaseConfig)
-//   ],
-//   declarations: [AppComponent],
-//   bootstrap: [ AppComponent ]
-// })
-  
-// export class AppModule {}
