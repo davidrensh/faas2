@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {CKEditor} from 'ng2-ckeditor';
+import { Component, OnInit, ElementRef, ViewChild, NgZone, Input } from '@angular/core';
+
+
 @Component({
   selector: 'app-tempeditor',
-  directives: [CKEditor],
   template: `
-    <ckeditor [(ngModel)]="content" debounce="500"  [config]="{extraPlugins: 'divarea'}">
+    <ckeditor [(ngModel)]="content" debounce="500"  >
       <p>Hello <strong>world</strong></p>
     </ckeditor>
     <div [innerHTML]="content"></div>
@@ -13,11 +13,15 @@ import {CKEditor} from 'ng2-ckeditor';
 })
 export class TempeditorComponent implements OnInit {
   content: any;
-  constructor() {
-    this.content = `<p>My HTML</p>`;
+  constructor(private _zone: NgZone) {
+    console.log("testtttt11111");
+    this.content = `<p>My HTML22</p>`;
    }
 
   ngOnInit() {
+    //    CKEditor..replace( targetId );
   }
+  // afterAll() {
 
+  // }
 }

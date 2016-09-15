@@ -1,5 +1,5 @@
 import { Component} from '@angular/core';//,Directive, ComponentMetadata, Input, ReflectiveInjector, ViewContainerRef, Compiler,NgModule 
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+
 
 @Component({
   //moduleId: module.id,
@@ -15,12 +15,12 @@ export class AppComponent {
   <div> {{title}}
     <button (click)="self.setMessage('dynamic component')">Click</button>
   </div>`;
-  items: FirebaseListObservable<any[]>;
-  constructor(af: AngularFire) {//
-    //console.log("aaaa");
-    this.items = af.database.list('items');
+  // items: FirebaseListObservable<any[]>;
+  // constructor(af: AngularFire) {//
+  //   //console.log("aaaa");
+  //   this.items = af.database.list('items');
     
-  }
+  // }
   setMessage(message: string) {
     this.title = 'Changed title';
     this.html = `<div>{{title}}</div><ul><li class="text" *ngFor="let item of items | async">{{item.$value}}</li></ul>
@@ -28,7 +28,7 @@ export class AppComponent {
     `;
   
   }
-  saveForm(message: string) {
-    //save end user submited form data 
-  }
+  // saveForm(message: string) {
+  //   //save end user submited form data 
+  // }
 }
