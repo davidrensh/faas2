@@ -1,6 +1,6 @@
 import { Component,Directive, ComponentMetadata, Input, ReflectiveInjector,
   ViewContainerRef, Compiler,NgModule  } from '@angular/core';
-
+//import {Subject,Observer} from 'rxjs/Rx';
 @Directive({
   selector: '[dynamicContent]',
 })
@@ -35,16 +35,3 @@ export class DynamicTemplate {
   }
 }
 
-// @Component({
-//   selector: 'app-dynamictemplate',
-//   templateUrl: 'dynamictemplate.component.html',
-//   styleUrls: ['dynamictemplate.component.css']
-// })
-// export class DynamictemplateComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }

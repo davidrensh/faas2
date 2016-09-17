@@ -12,6 +12,13 @@ export class TempeditorComponent implements OnInit {
   constructor(private _zone: NgZone, public af: AngularFire) {
     // console.log("testtttt11111");
     // this.content = `<p>My HTML22</p>`;
+    let formname: string = "f01";
+    this.af.database.object("/forms/" + formname).subscribe(res => {
+      if (res) {
+        this.content = res.contenthtml;
+      }
+    }
+    );
   }
 
   ngOnInit() {

@@ -21,7 +21,7 @@ import { ApiComponent } from './api/api.component';
 export const firebaseConfig = {
   apiKey: "AIzaSyDUKlFAFOci3eIKn84YGr4Z1A4fexfyfNg",
   authDomain: "formaas.firebaseapp.com",
-  databaseURL: "https://formaas.firebaseio.com",
+  databaseURL: "https://formaas.firebaseio.com",//dren1117@gmail.com
   storageBucket: "gs://firebase-formaas.appspot.com"
 };
 
